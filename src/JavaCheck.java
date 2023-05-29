@@ -41,8 +41,8 @@ public class JavaCheck {
 		    while ((line = br.readLine()) != null) {
 		    	if(line.startsWith("G[")) {
 		    		String tp = br.readLine();
-		    		if(tp == null || !tp.startsWith("TP[")) {
-		    			System.out.println("*** SKIPPING GRAPH");
+		    		if(tp == null || !(tp.startsWith("TP[") || tp.startsWith("CP[") || tp.startsWith("FP["))) {
+		    			System.out.println("*** SKIPPING GRAPH (" + tp + ")");
 		    			continue;
 		    		} else {
 		    			line = line.substring("G[1] := {".length(),line.length()-1);
